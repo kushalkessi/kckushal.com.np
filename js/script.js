@@ -1,26 +1,19 @@
-function toggleDetails(id) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  el.classList.toggle('open');
+const text = "My name is Kushal KC";
+const typingElement = document.getElementById("typing");
+let index = 0;
+let forward = true;
 
-  // Toggle button text if button is inline with onclick
-  const btn = document.querySelector(`[onclick="toggleDetails('${id}')"]`);
-  if (btn) {
-    btn.textContent = el.classList.contains('open') ? 'Hide Details' : 'Show Details';
+function typeEffect() {
+  if (forward) {
+    typingElement.textContent += text.charAt(index);
+    index++;
+    if (index === text.length) forward = false;
+  } else {
+    typingElement.textContent = text.substring(0, index - 1);
+    index--;
+    if (index === 0) forward = true;
   }
+  setTimeout(typeEffect, 150); // typing speed
 }
 
-function setFooterDate() {
-  const el = document.getElementById('copyright');
-  if (!el) return;
-  const now = new Date();
-  const dateString = now.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
-  el.textContent = `All rights reserved by Kushal @ ${dateString}`;
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-  setFooterDate();
-
-  // Ensure project details are hidden on load (in case markup shows them)
-  document.querySelectorAll('.project-details').forEach(d => d.classList.remove('open'));
-});
+typeEffect();
