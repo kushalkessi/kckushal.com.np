@@ -44,27 +44,130 @@
     </nav>
 
     <main class="container py-5">
-        <h2>Projects</h2>
+        <h2 class="text-center mb-5 fw-bold">Projects</h2>
 
-        <h3>Satellite Data Analytics Project (SDAP)</h3>
-        <p>August 2023 – September 2025 | Antarikchya Pratisthan Nepal</p>
-        <p>Leveraged satellite data and GIS mapping for flood damage assessment in Sapta Koshi, environmental monitoring
-            in Chure region, earthquake and forest fire visualization, and dynamic population density mapping.</p>
-        <p>Tools: ArcGIS Pro, QGIS, HEC-HMS, Google Earth Engine, WebGIS, PHP</p>
-        <p><a href="https://antarikchya.org.np/visualize.php">Project Link</a></p>
+        <div class="row g-4">
 
-        <h3>Space-enabled Urban Solutions in Nepal (SUSN)</h3>
-        <p>August 2023 – July 2024 | Kathmandu Metropolitan City</p>
-        <p>Collaborated with KMC departments for land use classification and GIS mapping to support urban development
-            and disaster risk management.</p>
-        <p>Tools: ArcGIS Pro, QGIS, AutoCAD, Google Earth Engine, Python</p>
-        <p><a href="https://www.kmc.antarikchya.org.np/">Project Link</a></p>
+            <!-- Project 1 -->
+            <div class="col-md-4">
+                <div class="project-card h-100 p-3 shadow-sm border rounded-4">
+                    <h5 class="fw-bold">Satellite Data Analytics Project (SDAP)</h5>
+                    <p class="text-muted small mb-2">August 2023 – September 2025 | Antarikchya Pratisthan Nepal</p>
+                    <p>
+                        Leveraged satellite data and GIS mapping for flood damage assessment in Sapta Koshi,
+                        environmental
+                        monitoring in Chure region, earthquake and forest fire visualization, and dynamic population
+                        density...
+                    </p>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#project1Modal">Read More</a>
+                </div>
+            </div>
 
-        <h3>Land Use/Land Cover Classification and Future Prediction</h3>
-        <p>March 2024 – August 2024 | Asian Institute of Technology</p>
-        <p>Utilized Google Earth Engine for LULC mapping and TerrSet 2020 for predicting future LULC changes.</p>
-        <p>Tools: ArcGIS Pro, Google Earth Engine, TerrSet 2020</p>
+            <!-- Project 2 -->
+            <div class="col-md-4">
+                <div class="project-card h-100 p-3 shadow-sm border rounded-4">
+                    <h5 class="fw-bold">Space-enabled Urban Solutions in Nepal (SUSN)</h5>
+                    <p class="text-muted small mb-2">August 2023 – July 2024 | Kathmandu Metropolitan City</p>
+                    <p>
+                        Collaborated with KMC departments for land use classification and GIS mapping to support urban
+                        development and disaster risk management...
+                    </p>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#project2Modal">Read More</a>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="col-md-4">
+                <div class="project-card h-100 p-3 shadow-sm border rounded-4">
+                    <h5 class="fw-bold">Land Use/Land Cover Classification and Future Prediction</h5>
+                    <p class="text-muted small mb-2">March 2024 – August 2024 | Asian Institute of Technology</p>
+                    <p>
+                        Utilized Google Earth Engine for LULC mapping and TerrSet 2020 for predicting future LULC
+                        changes...
+                    </p>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#project3Modal">Read More</a>
+                </div>
+            </div>
+
+        </div>
     </main>
+
+    <!-- Modals -->
+    <!-- Project 1 Modal -->
+    <div class="modal fade" id="project1Modal" tabindex="-1" aria-labelledby="project1Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-center text-gray fw-bold w-100" id="project1Label">
+                        Satellite Data Analytics Project (SDAP)
+                    </h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Duration:</strong> August 2023 – September 2025 | Antarikchya Pratisthan Nepal</p>
+                    <p> <strong>Description: </strong>
+                        Leveraged satellite data and GIS mapping for flood damage assessment in Sapta Koshi, environmental monitoring in Chure region, earthquake and forest fire visualization, and dynamic population density mapping.
+                    </p>
+                    <p><strong>Tools:</strong> ArcGIS Pro, QGIS, HEC-HMS, Google Earth Engine, WebGIS, PHP</p>
+                    <p>
+                        <strong>Links:</strong>
+                        <a href="https://antarikchya.org.np/visualization.php" class="fst-italic small" target="_blank"
+                            rel="noopener noreferrer">
+                            antarikchya.org.np/visualization.php
+                        </a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 2 Modal -->
+    <div class="modal fade" id="project2Modal" tabindex="-1" aria-labelledby="project2Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-center text-danger fw-bold w-100" id="project2Label">
+                        Space-enabled Urban Solutions in Nepal (SUSN)
+                    </h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Duration:</strong> August 2023 – July 2024 | Kathmandu Metropolitan City</p>
+                    <p>
+                        Collaborated with KMC departments for land use classification and GIS mapping to support urban
+                        development and disaster risk management.
+                    </p>
+                    <p><strong>Tools:</strong> ArcGIS Pro, QGIS, AutoCAD, Google Earth Engine, Python</p>
+                    <p><a href="#" class="fst-italic small">Project Link</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 3 Modal -->
+    <div class="modal fade" id="project3Modal" tabindex="-1" aria-labelledby="project3Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-center text-danger fw-bold w-100" id="project3Label">
+                        Land Use/Land Cover Classification and Future Prediction
+                    </h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Duration:</strong> March 2024 – August 2024 | Asian Institute of Technology</p>
+                    <p>
+                        Utilized Google Earth Engine for LULC mapping and TerrSet 2020 for predicting future LULC
+                        changes.
+                    </p>
+                    <p><strong>Tools:</strong> ArcGIS Pro, Google Earth Engine, TerrSet 2020</p>
+                    <p><a href="#" class="fst-italic small">Project Link</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Footer -->
     <footer class="footer text-center py-4" style="background-color: #e3f2fd; color: #000;">

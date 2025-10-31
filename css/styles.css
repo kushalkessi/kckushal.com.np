@@ -28,10 +28,23 @@ body {
   font-size: 1rem;
 }
 
-h1,
-h2,
+h1 {
+  font-weight: 600;
+}
+
+h2 {
+  font-weight: 600;
+  text-align: center;
+  color: #3a3333;
+}
+
 h3 {
   font-weight: 600;
+}
+
+.modal-body p {
+  text-align: justify;
+
 }
 
 .footer i:hover {
@@ -45,4 +58,41 @@ h3 {
   padding-right: 5px;
   white-space: nowrap;
   overflow: hidden;
+}
+
+
+/* contact css */
+.contact-box {
+  max-width: 450px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.contact-item i {
+  display: block;
+}
+
+.contact-item p {
+  margin: 0;
+}
+
+hr {
+  border: none;
+  border-top: 3px solid #272424;
+}
+
+/* Project css */
+.project-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: #fff;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal-body p {
+  text-align: justify;
+
 }
