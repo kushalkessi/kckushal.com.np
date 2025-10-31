@@ -63,7 +63,7 @@ h3 {
 
 /* contact css */
 .contact-box {
-  max-width: 450px;
+  max-width: fit-content;
   background-color: #fff;
   text-align: center;
 }
