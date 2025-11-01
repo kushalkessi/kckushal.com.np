@@ -5,15 +5,15 @@ let forward = true;
 
 function typeEffect() {
   if (forward) {
-    typingElement.textContent += text.charAt(index);
+    typingElement.textContent = text.substring(0, index + 1) + ".";
     index++;
     if (index === text.length) forward = false;
   } else {
-    typingElement.textContent = text.substring(0, index - 1);
+    typingElement.textContent = text.substring(0, index - 1) + ".";
     index--;
     if (index === 0) forward = true;
   }
-  setTimeout(typeEffect, 150); // typing speed
+  setTimeout(typeEffect, 200);
 }
 
 typeEffect();

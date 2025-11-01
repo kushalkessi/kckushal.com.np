@@ -39,7 +39,11 @@
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
+                <div class="google-translate-wrapper ml-auto">
+                    <div id="google_translate_element"></div>
+                </div>
             </div>
+
         </div>
     </nav>
 
@@ -51,17 +55,19 @@
             <!-- Project 1 -->
             <div class="col-md-4">
                 <div class="project-card h-100 p-3 shadow-sm border rounded-4">
+                    <img src="image/apn_chair.jpg" alt="Satellite Data Analytics Project"
+                        class="project-img mb-3 rounded-3">
                     <h5 class="fw-bold">Satellite Data Analytics Project (SDAP)</h5>
                     <p class="text-muted small mb-2">August 2023 – September 2025 | Antarikchya Pratisthan Nepal</p>
                     <p>
                         Leveraged satellite data and GIS mapping for flood damage assessment in Sapta Koshi,
-                        environmental
-                        monitoring in Chure region, earthquake and forest fire visualization, and dynamic population
-                        density...
+                        environmental monitoring in Chure region, earthquake and forest fire visualization,
+                        and dynamic population density...
                     </p>
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#project1Modal">Read More</a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#project1Modal" class="text-reset">Read More</a>
                 </div>
             </div>
+
 
             <!-- Project 2 -->
             <div class="col-md-4">
@@ -72,7 +78,7 @@
                         Collaborated with KMC departments for land use classification and GIS mapping to support urban
                         development and disaster risk management...
                     </p>
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#project2Modal">Read More</a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#project2Modal" class="text-reset">Read More</a>
                 </div>
             </div>
 
@@ -85,7 +91,7 @@
                         Utilized Google Earth Engine for LULC mapping and TerrSet 2020 for predicting future LULC
                         changes...
                     </p>
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#project3Modal">Read More</a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#project3Modal" class="text-reset">Read More</a>
                 </div>
             </div>
 
@@ -105,18 +111,16 @@
                 </div>
                 <div class="modal-body">
                     <p><strong>Duration:</strong> August 2023 – September 2025 | Antarikchya Pratisthan Nepal</p>
-                    <p> <strong>Description: </strong>
-                        Leveraged satellite data and GIS mapping for flood damage assessment in Sapta Koshi, environmental monitoring in Chure region, earthquake and forest fire visualization, and dynamic population density mapping.
+                    <p><strong>Description:</strong>
+                        Leveraged satellite data and GIS mapping for flood damage assessment in Sapta Koshi,
+                        environmental monitoring in Chure region, earthquake and forest fire visualization, and dynamic
+                        population density mapping.
                     </p>
                     <p><strong>Tools:</strong> ArcGIS Pro, QGIS, HEC-HMS, Google Earth Engine, WebGIS, PHP</p>
-                    <p>
-                        <strong>Links:</strong>
+                    <p><strong>Links:</strong>
                         <a href="https://antarikchya.org.np/visualization.php" class="fst-italic small" target="_blank"
-                            rel="noopener noreferrer">
-                            antarikchya.org.np/visualization.php
-                        </a>
+                            rel="noopener noreferrer">antarikchya.org.np/visualization.php</a>
                     </p>
-
                 </div>
             </div>
         </div>
@@ -134,12 +138,15 @@
                 </div>
                 <div class="modal-body">
                     <p><strong>Duration:</strong> August 2023 – July 2024 | Kathmandu Metropolitan City</p>
-                    <p>
+                    <p><strong>Description:</strong>
                         Collaborated with KMC departments for land use classification and GIS mapping to support urban
                         development and disaster risk management.
                     </p>
                     <p><strong>Tools:</strong> ArcGIS Pro, QGIS, AutoCAD, Google Earth Engine, Python</p>
-                    <p><a href="#" class="fst-italic small">Project Link</a></p>
+                    <p><strong>Links:</strong>
+                        <a href="https://antarikchya.org.np/visualization.php" class="fst-italic small" target="_blank"
+                            rel="noopener noreferrer">antarikchya.org.np/visualization.php</a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -157,12 +164,15 @@
                 </div>
                 <div class="modal-body">
                     <p><strong>Duration:</strong> March 2024 – August 2024 | Asian Institute of Technology</p>
-                    <p>
+                    <p><strong>Description:</strong>
                         Utilized Google Earth Engine for LULC mapping and TerrSet 2020 for predicting future LULC
                         changes.
                     </p>
                     <p><strong>Tools:</strong> ArcGIS Pro, Google Earth Engine, TerrSet 2020</p>
-                    <p><a href="#" class="fst-italic small">Project Link</a></p>
+                    <p><strong>Links:</strong>
+                        <a href="https://antarikchya.org.np/visualization.php" class="fst-italic small" target="_blank"
+                            rel="noopener noreferrer">antarikchya.org.np/visualization.php</a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -191,6 +201,19 @@
     <script>
         document.getElementById("year").textContent = new Date().getFullYear();
     </script>
+
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en', // Only the page's default language
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 
 </html>
