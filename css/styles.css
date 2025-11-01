@@ -107,7 +107,7 @@ hr {
 
 /* index css*/
 .hero-section {
-  background: url('../image/spacecon.JPG') center center no-repeat;
+  background: url('../../image/spacecon.JPG') center center no-repeat;
   background-size: contain;
   height: 90vh;
   display: flex;
