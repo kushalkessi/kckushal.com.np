@@ -1,6 +1,7 @@
 body {
   font-family: 'Roboto', sans-serif;
   background-color: #f8f9fa;
+  padding-top: 72px;
 }
 
 /* Navbar styling */
@@ -86,12 +87,13 @@ hr {
 /* Project css */
 .project-card {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  background-color: #fff;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+
 }
 
 .modal-body p {
@@ -147,7 +149,7 @@ hr {
 
 /* skill css */
 .skill-box {
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 
 .progress {
@@ -159,11 +161,22 @@ hr {
   background-color: rgb(255, 255, 255);
 }
 
+
+.skill-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  border-radius: 20px;
+}
+
 .progress-bar {
-  background: linear-gradient(90deg, #719c2c, #949b2f, #e96e09);
+  background: linear-gradient(90deg, #04d415, #71d16e, #dbce11, #e98007), #e91a13;
   position: relative;
   border-radius: 180px;
   height: 100%;
+  transition: width 0.6s ease-in-out;
+  background-repeat: no-repeat;
+   background-size: calc(100% * (100 / var(--progress, 100))) 100%;
 }
 
 /* Dot styling */
@@ -198,7 +211,6 @@ h6 {
   position: absolute;
   width: 2px;
   background-color: #28a745;
-  /* Green line */
   top: 0;
   bottom: 0;
   left: 30%;
