@@ -4,6 +4,12 @@ body {
   padding-top: 72px;
 }
 
+html {
+  scroll-padding-top: 85px;
+  scroll-behavior:smooth;
+}
+
+
 /* Navbar styling */
 .navbar-brand {
   color: #1a1b1b !important;
@@ -140,7 +146,7 @@ hr {
   color: #ece6e6;
 }
 
-.hero-section h1{
+.hero-section h1 {
   margin-top: 160px;
 }
 
@@ -175,7 +181,7 @@ hr {
   height: 100%;
   transition: width 0.6s ease-in-out;
   background-repeat: no-repeat;
-   background-size: calc(100% * (100 / var(--progress, 100))) 100%;
+  background-size: calc(100% * (100 / var(--progress, 100))) 100%;
 }
 
 /* Dot styling */
@@ -252,10 +258,21 @@ h6 {
 }
 
 
+/* gallery css */
+.gallery-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
+}
 
+.gallery-title {
+  text-align: center;
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
 
-
-
-
-
-
+.gallery-item {
+  margin-bottom: 20px;
+}

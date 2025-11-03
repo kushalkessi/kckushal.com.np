@@ -36,42 +36,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/styles.css" />
-    <link rel="icon" type="image/x-icon" href="image/pp_size.jpg" />
+    <link rel="icon" type="image/x-icon" href="image/spacecon.JPG" />
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top shadow-sm" style="background-color: #e3f2fd;" data-bs-theme="light">
-        <div class="container-fluid">
-            <a class="navbar-brand ms-3 d-flex align-items-center" href="index.html">
-                <img src="image/apn_chair.jpg" alt="Logo" width="45" height="45" class="me-3 rounded-circle" />
-                <span class="fw-bold fst-italic">KUSHAL</span>
-            </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
-                    <li class="nav-item"><a class="nav-link" href="education.html">Education</a></li>
-                    <li class="nav-item"><a class="nav-link" href="experience.html">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="skills.html">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="file/Kushal KC-CV.pdf" target="_blank">Resume</a>
-                    </li>
-                </ul>
-                <form class="d-flex me-3" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
+    <!-- Navbar/ Header Section -->
+    <div id="header"></div>
 
     <!-- Home Section -->
     <main>
@@ -92,7 +62,7 @@
     </main>
 
 
-    <!-- About me -->
+    <!-- About me Section -->
     <main class="py-3">
         <div class="container position-relative">
             <h2 class="text-center mb-4 fw-bold">About me</h2>
@@ -117,14 +87,14 @@
     <!-- Experience Section -->
     <main class="py-3">
         <div class="container position-relative">
-            <h2 class="text-center mb-4 fw-bold">Experience</h2>
+            <h2 class="text-center mb-4 fw-bold">Work Experience</h2>
             <div class="timeline" id="experience"></div>
         </div>
     </main>
 
 
     <!-- Projects Section -->
-    <main class="container py-3">
+    <main id="projects" class="container py-3">
         <h2 class="text-center mb-4 fw-bold">Projects</h2>
         <div id="projects-container" class="row g-4"></div>
     </main>
@@ -141,7 +111,7 @@
 
 
     <!-- contact Section -->
-    <main class="container py-3">
+    <main id = "contact" class="container py-3">
         <h2 class="mb-4 fw-bold text-center">Contact</h2>
         <div class="contact-box p-4 mx-auto shadow-sm border rounded-4">
 
@@ -178,29 +148,69 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer text-center py-4" style="background-color: #e3f2fd; color: #000;">
-        <p class="mb-0 fw-bold">All rights reserved by Kushal © <span id="year"></span></p>
-        <p class="mb-2">Made with ❤️ and ☕</p>
-        <div class="social-icons">
-            <a href="https://www.facebook.com/kushal.kc.5036" target="_blank" class="text-dark me-3"><i
-                    class="fab fa-facebook fa-lg"></i></a>
-            <a href="https://www.instagram.com/kushal_.kc21/" target="_blank" class="text-dark me-3"><i
-                    class="fab fa-instagram fa-lg"></i></a>
-            <a href="https://x.com/kessikushal" target="_blank" class="text-dark me-3"><i
-                    class="fab fa-x-twitter fa-lg"></i></a>
-            <a href="https://github.com/kushalkessi" target="_blank" class="text-dark me-3"><i
-                    class="fab fa-github fa-lg"></i></a>
-            <a href="https://www.linkedin.com/in/pr-kushal/" target="_blank" class="text-dark"><i
-                    class="fab fa-linkedin fa-lg"></i></a>
-        </div>
-    </footer>
+    <!-- Footer Section -->
+    <div id="footer"></div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- Include Header & Footer via JS -->
     <script>
-        document.getElementById("year").textContent = new Date().getFullYear();
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+
+                const navbarCollapse = document.getElementById('navbarNav');
+                const navbarToggler = document.querySelector('.navbar-toggler');
+
+                // Initialize Bootstrap collapse
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+
+                // Function to set 5-second auto-collapse
+                function autoCollapseTimer() {
+                    setTimeout(() => {
+                        if (window.getComputedStyle(navbarToggler).display !== 'none' &&
+                            navbarCollapse.classList.contains('show')) {
+                            bsCollapse.hide();
+                        }
+                    }, 5000);
+                }
+
+                // Collapse on link click
+                const navLinks = document.querySelectorAll('.navbar-collapse .nav-link');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (window.getComputedStyle(navbarToggler).display !== 'none') {
+                            bsCollapse.hide();
+                        }
+                    });
+                });
+
+                // Start auto-collapse every time the navbar opens
+                navbarToggler.addEventListener('click', () => {
+                    if (window.getComputedStyle(navbarToggler).display !== 'none') {
+                        // Only start timer if navbar is being opened
+                        setTimeout(() => {
+                            if (navbarCollapse.classList.contains('show')) {
+                                bsCollapse.hide();
+                            }
+                        }, 5000);
+                    }
+                });
+            });
+
+        // Load footer
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+                document.getElementById("year").textContent = new Date().getFullYear();
+            }); 
     </script>
+
+    <!-- Link JS -->
     <script src="js/script.js"></script>
 
 </body>

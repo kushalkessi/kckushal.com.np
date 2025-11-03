@@ -19,20 +19,20 @@ function typeEffect() {
 typeEffect();
 
 // education data
-// 🎓 Education Data
 const educationData = [
   {
     year: "2025 – Expected 2029",
     institution: "Kathmandu University (KU), Dhulikhel, Nepal",
-    degree: "Bachelor of Engineering in Geomatics Engineering",
+    degree: "Bachelor of Engineering in Geomatics Engineering (B.E.)",
     link: "https://geom.ku.edu.np/",
-    note: "geom.ku.edu.np"
+    note: "Key Modules: Programming (C)"
   },
   {
     year: "2019 – 2023",
     institution: "Nepal Banepa Polytechnic Institute (NBPI), Banepa, Nepal",
-    degree: "Diploma in Geomatics Engineering | Aggregate Score: 77.86%",
-    note: "Key Modules: Surveying, Remote Sensing, GIS, Photogrammetry"
+    degree: "Diploma in Geomatics Engineering (DGE) | Aggregate Score: 77.86%",
+    link: "https://nbpi.edu.np/",
+    note: "Key Modules: Surveying, Remote Sensing, GIS, Photogrammetry, Programming (Python)"
   },
   {
     year: "2006 – 2019",
@@ -43,7 +43,7 @@ const educationData = [
 
 const education = document.getElementById("education");
 
-// 🧩 Generate timeline dynamically
+// Generate timeline dynamically
 educationData.forEach(edu => {
   const item = document.createElement("div");
   item.className = "timeline-item d-flex align-items-center";
@@ -66,7 +66,6 @@ educationData.forEach(edu => {
 
 
 // experience data
-
 const experiencesdata = [
   {
     date: "August 2023 – September 2025",
@@ -147,7 +146,7 @@ const projects = [
 const projectContainer = document.getElementById("projects-container");
 const modalContainer = document.getElementById("modals-container");
 
-// 🔁 Generate project cards dynamically
+// Generate project cards dynamically
 projects.forEach(p => {
   const col = document.createElement("div");
   col.className = "col-md-4";
@@ -167,7 +166,7 @@ projects.forEach(p => {
       `;
   projectContainer.appendChild(col);
 
-  // 🪄 Create corresponding modal dynamically
+  // Create corresponding modal dynamically
   modalContainer.innerHTML += `
         <div class="modal fade" id="${p.id}Modal" tabindex="-1" aria-labelledby="${p.id}Label" aria-hidden="true">
           <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -191,23 +190,31 @@ projects.forEach(p => {
 });
 
 
-
-
 // Skills Data
 const skills = [
-  { name: "ArcGIS", level: 80 },
-  { name: "QGIS", level: 75 },
-  { name: "ArcGIS Pro", level: 90 },
-  { name: "WebGIS", level: 65 },
+  { name: "ArcGIS / ArcGIS Pro", level: 90 },
+  { name: "AutoCAD", level: 45 },
+  { name: "Differential GPS", level: 55 },
+  { name: "Django", level: 50 },
+  { name: "ENVI", level: 35 },
+  { name: "ERDAS Imagine", level: 35 },
+  { name: "Google Earth Engine", level: 90 },
+  { name: "HEC-HMS / HEC-RAS", level: 65 },
+  { name: "HTML/CSS/JS", level: 75 },
+  { name: "Microsoft 360", level: 80 },
+  { name: "Plane Table", level: 50 },
   { name: "PHP", level: 60 },
   { name: "Python", level: 70 },
-  { name: "Google Earth Engine", level: 85 },
-  { name: "Remote Sensing", level: 88 }
-];
+  { name: "QGIS", level: 80 },
+  { name: "SNAP Desktop", level: 70 },
+  { name: "TerrSet 2020", level: 55 },
+  { name: "Theodolite", level: 70 },
+  { name: "Total Station", level: 75 },
+]
 
 const container = document.getElementById("skills-box");
 
-// 🔁 Generate each skill dynamically
+// Generate each skill dynamically
 skills.forEach(skill => {
   const col = document.createElement("div");
   col.className = "col-md-4 skill-box";
@@ -223,3 +230,6 @@ skills.forEach(skill => {
 
   container.appendChild(col);
 });
+
+
+// Gallery Data
