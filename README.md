@@ -48,8 +48,8 @@ This project is **open-source** and available under the MIT License.
 
 **Kushal KC**
 
-* Email: [your-email@example.com](mailto:kessikushal@gmail.com)
+* Email: [kessikushal@gmail.com](mailto:kessikushal@gmail.com)
 * Website: [https://www.kckushal.com.np](https://www.kckushal.com.np)
-* LinkedIn: [linkedin.com/in/kushalkc](https://www.linkedin.com/in/kessikushal)
+* LinkedIn: [linkedin.com/in/kessikushal](https://www.linkedin.com/in/kessikushal)
 
 ---
