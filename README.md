@@ -1,9 +1,9 @@
 
 # Kushal KC Portfolio Website
-![Portfolio Screenshot](./image/spacecon.jpg)
+![Portfolio Screenshot](./image/spacecon.JPG)
 
 ## Overview
-This is a personal portfolio website for **Kushal KC**, a Geomatics Engineer and Satellite Data Analyst based in Nepal. The website showcases professional skills, education, work experience, projects, and a photo gallery. It is fully responsive, dynamic, and interactive, using **HTML, CSS, JavaScript, and Bootstrap 5**.
+This is a personal portfolio website for **Kushal KC**, a Geomatics Engineer and Satellite Data Analyst based in Nepal. The website showcases professional skills, education, work experience, projects and a photo gallery. It is fully responsive, dynamic, and interactive, using **HTML, CSS, JavaScript and Bootstrap 5**.
 
 ---
 
