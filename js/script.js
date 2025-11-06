@@ -1,54 +1,57 @@
-const text = "My name is Kushal KC";
-const typingElement = document.getElementById("typing");
-let index = 0;
-let forward = true;
+document.addEventListener("DOMContentLoaded", () => {
 
-function typeEffect() {
-  if (forward) {
-    typingElement.textContent = text.substring(0, index + 1) + ".";
-    index++;
-    if (index === text.length) forward = false;
-  } else {
-    typingElement.textContent = text.substring(0, index - 1) + ".";
-    index--;
-    if (index === 0) forward = true;
+  // ---------------- Typing Effect ----------------
+  const text = "My name is Kushal KC";
+  const typingElement = document.getElementById("typing");
+  if (typingElement) {
+    let index = 0;
+    let forward = true;
+
+    function typeEffect() {
+      if (forward) {
+        typingElement.textContent = text.substring(0, index + 1) + ".";
+        index++;
+        if (index === text.length) forward = false;
+      } else {
+        typingElement.textContent = text.substring(0, index - 1) + ".";
+        index--;
+        if (index === 0) forward = true;
+      }
+      setTimeout(typeEffect, 200);
+    }
+
+    typeEffect();
   }
-  setTimeout(typeEffect, 200);
-}
 
-typeEffect();
+  // ---------------- Education Timeline ----------------
+  const educationData = [
+    {
+      year: "2025 – Expected 2029",
+      institution: "Kathmandu University (KU), Dhulikhel, Nepal",
+      degree: "Bachelor of Engineering in Geomatics Engineering (B.E.)",
+      link: "https://geom.ku.edu.np/",
+      note: "Key Modules: Programming (C)"
+    },
+    {
+      year: "2019 – 2023",
+      institution: "Nepal Banepa Polytechnic Institute (NBPI), Banepa, Nepal",
+      degree: "Diploma in Geomatics Engineering (DGE) | Aggregate Score: 77.86%",
+      link: "https://nbpi.edu.np/",
+      note: "Key Modules: Surveying, Remote Sensing, GIS, Photogrammetry, Programming (Python)"
+    },
+    {
+      year: "2006 – 2019",
+      institution: "Arunodaya English Secondary School, Panauti, Nepal",
+      degree: "Secondary Education Examination (SEE) | Aggregate Grade: 3.85"
+    }
+  ];
 
-// education data
-const educationData = [
-  {
-    year: "2025 – Expected 2029",
-    institution: "Kathmandu University (KU), Dhulikhel, Nepal",
-    degree: "Bachelor of Engineering in Geomatics Engineering (B.E.)",
-    link: "https://geom.ku.edu.np/",
-    note: "Key Modules: Programming (C)"
-  },
-  {
-    year: "2019 – 2023",
-    institution: "Nepal Banepa Polytechnic Institute (NBPI), Banepa, Nepal",
-    degree: "Diploma in Geomatics Engineering (DGE) | Aggregate Score: 77.86%",
-    link: "https://nbpi.edu.np/",
-    note: "Key Modules: Surveying, Remote Sensing, GIS, Photogrammetry, Programming (Python)"
-  },
-  {
-    year: "2006 – 2019",
-    institution: "Arunodaya English Secondary School, Panauti, Nepal",
-    degree: "Secondary Education Examination (SEE) | Aggregate Grade: 3.85"
-  }
-];
-
-const education = document.getElementById("education");
-
-// Generate timeline dynamically
-educationData.forEach(edu => {
-  const item = document.createElement("div");
-  item.className = "timeline-item d-flex align-items-center";
-
-  item.innerHTML = `
+  const education = document.getElementById("education");
+  if (education) {
+    educationData.forEach(edu => {
+      const item = document.createElement("div");
+      item.className = "timeline-item d-flex align-items-center";
+      item.innerHTML = `
         <div class="timeline-date">${edu.year}</div>
         <div class="timeline-icon">
           <i class="fas fa-circle text-success"></i>
@@ -60,42 +63,40 @@ educationData.forEach(edu => {
           ${edu.link ? `<p><a href="${edu.link}" class="text-blue" target="_blank">${edu.link}</a></p>` : ""}
         </div>
       `;
-
-  education.appendChild(item);
-});
-
-
-// experience data
-const experiencesdata = [
-  {
-    date: "August 2023 – September 2025",
-    organization: "Antarikchya Pratisthan Nepal",
-    role: "Satellite Data Analyst | GIS Mapping",
-    description: "Collaborative projects with Kathmandu Metropolitan City (KMC).",
-    link: "https://antarikchya.org.np/"
-  },
-  {
-    date: "March 2024 – August 2024",
-    organization: "Asian Institute of Technology, Thailand (Remote)",
-    role: "Remote Sensing Analyst | GIS Mapping",
-    description: "Collaborative projects with Dr. Ranadheer Mandadi."
-  },
-  {
-    date: "June 2023 – July 2023",
-    organization: "NAXA, Kathmandu, Nepal",
-    role: "GIS Analyst",
-    description: "Collaborative projects with Changunarayan Municipality and NDRRMA.",
-    link: "https://naxa.com.np/"
+      education.appendChild(item);
+    });
   }
-];
 
-const experience = document.getElementById("experience");
+  // ---------------- Experience Timeline ----------------
+  const experiencesdata = [
+    {
+      date: "August 2023 – September 2025",
+      organization: "Antarikchya Pratisthan Nepal",
+      role: "Satellite Data Analyst | GIS Mapping",
+      description: "Collaborative projects with Kathmandu Metropolitan City (KMC).",
+      link: "https://antarikchya.org.np/"
+    },
+    {
+      date: "March 2024 – August 2024",
+      organization: "Asian Institute of Technology, Thailand (Remote)",
+      role: "Remote Sensing Analyst | GIS Mapping",
+      description: "Collaborative projects with Dr. Ranadheer Mandadi."
+    },
+    {
+      date: "June 2023 – July 2023",
+      organization: "NAXA, Kathmandu, Nepal",
+      role: "GIS Analyst",
+      description: "Collaborative projects with Changunarayan Municipality and NDRRMA.",
+      link: "https://naxa.com.np/"
+    }
+  ];
 
-experiencesdata.forEach(exp => {
-  const item = document.createElement("div");
-  item.className = "timeline-item d-flex align-items-center";
-
-  item.innerHTML = `
+  const experience = document.getElementById("experience");
+  if (experience) {
+    experiencesdata.forEach(exp => {
+      const item = document.createElement("div");
+      item.className = "timeline-item d-flex align-items-center";
+      item.innerHTML = `
         <div class="timeline-date">${exp.date}</div>
         <div class="timeline-icon">
           <i class="fas fa-circle text-success"></i>
@@ -107,55 +108,53 @@ experiencesdata.forEach(exp => {
           ${exp.link ? `<p><a href="${exp.link}" class="text-blue">${new URL(exp.link).hostname}</a></p>` : ""}
         </div>
       `;
-
-  experience.appendChild(item);
-});
-
-
-// project data
-const projects = [
-  {
-    id: "project1",
-    title: "Satellite Data Analytics Project (SDAP)",
-    duration: "August 2023 – September 2025 | Antarikchya Pratisthan Nepal",
-    description: "Leveraged satellite data and GIS mapping for flood damage assessment in Sapta Koshi, environmental monitoring in Chure region, earthquake and forest fire visualization, and dynamic population density mapping.",
-    tools: "ArcGIS Pro, QGIS, HEC-HMS, Google Earth Engine, WebGIS, PHP",
-    link: "https://antarikchya.org.np/visualization.php",
-    image: "image/apn_chair.jpg"
-  },
-  {
-    id: "project2",
-    title: "Space-enabled Urban Solutions in Nepal (SUSN)",
-    duration: "August 2023 – July 2024 | Kathmandu Metropolitan City",
-    description: "Collaborated with KMC departments for land use classification and GIS mapping to support urban development and disaster risk management.",
-    tools: "ArcGIS Pro, QGIS, AutoCAD, Google Earth Engine, Python",
-    link: "https://antarikchya.org.np/visualization.php",
-    image: "image/apn_chair.jpg"
-  },
-  {
-    id: "project3",
-    title: "Land Use/Land Cover Classification and Future Prediction",
-    duration: "March 2024 – August 2024 | Asian Institute of Technology",
-    description: "Utilized Google Earth Engine for LULC mapping and TerrSet 2020 for predicting future LULC changes.",
-    tools: "ArcGIS Pro, Google Earth Engine, TerrSet 2020",
-    link: "https://antarikchya.org.np/visualization.php",
-    image: "image/apn_chair.jpg"
+      experience.appendChild(item);
+    });
   }
-];
 
-const projectContainer = document.getElementById("projects-container");
-const modalContainer = document.getElementById("modals-container");
+  // ---------------- Projects Section ----------------
+  const projects = [
+    {
+      id: "project1",
+      title: "Satellite Data Analytics Project (SDAP)",
+      duration: "August 2023 – September 2025 | Antarikchya Pratisthan Nepal",
+      description: "Leveraged satellite data and GIS mapping for flood damage assessment in Sapta Koshi, environmental monitoring in Chure region, earthquake and forest fire visualization, and dynamic population density mapping.",
+      tools: "ArcGIS Pro, QGIS, HEC-HMS, Google Earth Engine, WebGIS, PHP",
+      link: "https://antarikchya.org.np/visualization.php",
+      image: "image/apn_chair.jpg"
+    },
+    {
+      id: "project2",
+      title: "Space-enabled Urban Solutions in Nepal (SUSN)",
+      duration: "August 2023 – July 2024 | Kathmandu Metropolitan City",
+      description: "Collaborated with KMC departments for land use classification and GIS mapping to support urban development and disaster risk management.",
+      tools: "ArcGIS Pro, QGIS, AutoCAD, Google Earth Engine, Python",
+      link: "https://antarikchya.org.np/visualization.php",
+      image: "image/apn_chair.jpg"
+    },
+    {
+      id: "project3",
+      title: "Land Use/Land Cover Classification and Future Prediction",
+      duration: "March 2024 – August 2024 | Asian Institute of Technology",
+      description: "Utilized Google Earth Engine for LULC mapping and TerrSet 2020 for predicting future LULC changes.",
+      tools: "ArcGIS Pro, Google Earth Engine, TerrSet 2020",
+      link: "https://antarikchya.org.np/visualization.php",
+      image: "image/apn_chair.jpg"
+    }
+  ];
 
-// Generate project cards dynamically
-projects.forEach(p => {
-  const col = document.createElement("div");
-  col.className = "col-md-4";
+  const projectContainer = document.getElementById("projects-container");
+  const modalContainer = document.getElementById("modals-container");
 
-  const imgTag = p.image
-    ? `<img src="${p.image}" alt="${p.title}" class="project-img mb-3 rounded-3">`
-    : "";
+  if (projectContainer && modalContainer) {
+    projects.forEach(p => {
+      const col = document.createElement("div");
+      col.className = "col-md-4";
+      const imgTag = p.image
+        ? `<img src="${p.image}" alt="${p.title}" class="project-img mb-3 rounded-3">`
+        : "";
 
-  col.innerHTML = `
+      col.innerHTML = `
         <div class="project-card h-100 p-3 shadow-sm border rounded-4">
           ${imgTag}
           <h5 class="fw-bold">${p.title}</h5>
@@ -164,10 +163,9 @@ projects.forEach(p => {
           <a href="#" data-bs-toggle="modal" data-bs-target="#${p.id}Modal" class="text-reset">Read More</a>
         </div>
       `;
-  projectContainer.appendChild(col);
+      projectContainer.appendChild(col);
 
-  // Create corresponding modal dynamically
-  modalContainer.innerHTML += `
+      modalContainer.innerHTML += `
         <div class="modal fade" id="${p.id}Modal" tabindex="-1" aria-labelledby="${p.id}Label" aria-hidden="true">
           <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
@@ -187,49 +185,89 @@ projects.forEach(p => {
           </div>
         </div>
       `;
-});
+    });
+  }
 
+  // ---------------- Skills Section ----------------
+  const skillsData = [
+    { name: "ArcGIS / ArcGIS Pro", percentage: 90, color: "#04d415" },
+    { name: "AutoCAD", percentage: 45, color: "#71d16e" },
+    { name: "Differential GPS", percentage: 55, color: "#dbce11" },
+    { name: "Django", percentage: 50, color: "#e98007" },
+    { name: "ENVI", percentage: 35, color: "#e91a13" },
+    { name: "ERDAS Imagine", percentage: 35, color: "#04d415" },
+    { name: "Google Earth Engine", percentage: 90, color: "#71d16e" },
+    { name: "HEC-HMS / HEC-RAS", percentage: 65, color: "#dbce11" },
+    { name: "HTML/CSS/JS", percentage: 75, color: "#e98007" },
+    { name: "Microsoft 360", percentage: 80, color: "#e91a13" },
+    { name: "Plane Table", percentage: 50, color: "#04d415" },
+    { name: "PHP", percentage: 60, color: "#71d16e" },
+    { name: "Python", percentage: 70, color: "#dbce11" },
+    { name: "QGIS", percentage: 80, color: "#e98007" },
+    { name: "SNAP Desktop", percentage: 70, color: "#e91a13" },
+    { name: "TerrSet 2020", percentage: 55, color: "#04d415" },
+    { name: "Theodolite", percentage: 70, color: "#71d16e" },
+    { name: "Total Station", percentage: 75, color: "#dbce11" },
+  ];
 
-// Skills Data
-const skills = [
-  { name: "ArcGIS / ArcGIS Pro", level: 90 },
-  { name: "AutoCAD", level: 45 },
-  { name: "Differential GPS", level: 55 },
-  { name: "Django", level: 50 },
-  { name: "ENVI", level: 35 },
-  { name: "ERDAS Imagine", level: 35 },
-  { name: "Google Earth Engine", level: 90 },
-  { name: "HEC-HMS / HEC-RAS", level: 65 },
-  { name: "HTML/CSS/JS", level: 75 },
-  { name: "Microsoft 360", level: 80 },
-  { name: "Plane Table", level: 50 },
-  { name: "PHP", level: 60 },
-  { name: "Python", level: 70 },
-  { name: "QGIS", level: 80 },
-  { name: "SNAP Desktop", level: 70 },
-  { name: "TerrSet 2020", level: 55 },
-  { name: "Theodolite", level: 70 },
-  { name: "Total Station", level: 75 },
-]
-
-const container = document.getElementById("skills-box");
-
-// Generate each skill dynamically
-skills.forEach(skill => {
-  const col = document.createElement("div");
-  col.className = "col-md-4 skill-box";
-
-  col.innerHTML = `
+  const skillsBox = document.getElementById("skills-box");
+  if (skillsBox) {
+    skillsData.forEach(skill => {
+      const skillDiv = document.createElement("div");
+      skillDiv.className = "skill";
+      skillDiv.innerHTML = `
         <h6>${skill.name}</h6>
-        <div class="progress">
-          <div class="progress-bar" style="width: ${skill.level}%; --progress: ${skill.level};">
-            <div class="dot"></div>
+        <div class="progress-bar">
+          <div style="background: ${skill.color}; width:0%;">
+            <span></span>
           </div>
         </div>
       `;
+      skillsBox.appendChild(skillDiv);
+    });
 
-  container.appendChild(col);
+    // Animate on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const progressBars = skillsBox.querySelectorAll('.progress-bar div');
+        if (entry.isIntersecting) {
+          progressBars.forEach((bar, index) => {
+            bar.style.width = skillsData[index].percentage + '%';
+          });
+        } else {
+          progressBars.forEach(bar => bar.style.width = '0%');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(skillsBox);
+  }
+
+  // ---------------- Gallery Section ----------------
+  const galleryData = [
+    { src: "../image/pp_size.jpg", title: "Title 1" },
+    { src: "../image/apn_chair.jpg", title: "Title 2" },
+    { src: "../image/spacecon.jpg", title: "Title 3" },
+    { src: "../image/pp_size.jpg", title: "Title 4" },
+    { src: "../image/spacecon.jpg", title: "Title 5" },
+    { src: "../image/apn_chair.jpg", title: "Title 6" },
+    { src: "../image/pp_size.jpg", title: "Title 7" },
+    { src: "../image/spacecon.jpg", title: "Title 8" },
+    { src: "../image/apn_chair.jpg", title: "Title 9" },
+    { src: "../image/pp_size.jpg", title: "Title 10" }
+  ];
+
+  const galleryRow = document.getElementById("gallery-row");
+  if (galleryRow) {
+    galleryData.forEach(item => {
+      const colDiv = document.createElement("div");
+      colDiv.className = "col-sm-6 col-md-4 col-lg-3 gallery-item";
+      colDiv.innerHTML = `
+        <img src="${item.src}" alt="${item.title}" class="gallery-img">
+        <div class="gallery-title">${item.title}</div>
+      `;
+      galleryRow.appendChild(colDiv);
+    });
+  }
+
 });
-
-
-// Gallery Data
