@@ -45,6 +45,14 @@ h2 {
   color: #3a3333;
 }
 
+h2:hover {
+  color: #f50808 !important;
+  text-decoration: underline;
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+
 h3 {
   font-size: 1.4rem;
   font-weight: 600;
@@ -63,14 +71,23 @@ h3 {
 
 
 /* contact css */
-.contact-box {
-  max-width: fit-content;
+.contact-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.contact {
+  max-height: fit-content;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   background-color: #fff;
   text-align: center;
 }
 
-.contact-box:hover {
+.contact:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
@@ -88,6 +105,17 @@ hr {
   border: none;
   border-top: 3px solid #1f1c1c;
 }
+
+button {
+  background: #e27005;
+  color: white;
+  border: none;
+}
+
+button:hover {
+  background: #4d8fd4;
+}
+
 
 /* Project css */
 .project-card {

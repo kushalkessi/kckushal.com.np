@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ---------------- Education Timeline ----------------
   const educationData = [
     {
-      year: "2025 – Expected 2029",
+      year: "2025 – 2029",
       institution: "Kathmandu University (KU), Dhulikhel, Nepal",
       degree: "Bachelor of Engineering in Geomatics Engineering (B.E.)",
       link: "https://geom.ku.edu.np/",
@@ -138,9 +138,27 @@ document.addEventListener("DOMContentLoaded", () => {
       duration: "March 2024 – August 2024 | Asian Institute of Technology",
       description: "Utilized Google Earth Engine for LULC mapping and TerrSet 2020 for predicting future LULC changes.",
       tools: "ArcGIS Pro, Google Earth Engine, TerrSet 2020",
-      link: "https://antarikchya.org.np/visualization.php",
+      // link: "https://antarikchya.org.np/visualization.php",
       image: "image/apn_chair.jpg"
-    }
+    },
+    // {
+    //   id: "project4",
+    //   title: "",
+    //   duration: "",
+    //   description: "Utilized Google Earth Engine for LULC mapping and TerrSet 2020 for predicting future LULC changes.",
+    //   tools: "ArcGIS Pro, Google Earth Engine, TerrSet 2020",
+    //   // link: "https://antarikchya.org.np/visualization.php",
+    //   image: "image/apn_chair.jpg"
+    // },
+    // {
+    //   id: "project5",
+    //   title: "Land Use/Land Cover Classification and Future Prediction",
+    //   duration: "March 2024 – August 2024 | Asian Institute of Technology",
+    //   description: "Utilized Google Earth Engine for LULC mapping and TerrSet 2020 for predicting future LULC changes.",
+    //   tools: "ArcGIS Pro, Google Earth Engine, TerrSet 2020",
+    //   // link: "https://antarikchya.org.np/visualization.php",
+    //   image: "image/apn_chair.jpg"
+    // }
   ];
 
   const projectContainer = document.getElementById("projects-container");
@@ -248,13 +266,13 @@ document.addEventListener("DOMContentLoaded", () => {
     { src: "../image/pp_size.jpg", title: "Title 1" },
     { src: "../image/apn_chair.jpg", title: "Title 2" },
     { src: "../image/spacecon.jpg", title: "Title 3" },
-    { src: "../image/pp_size.jpg", title: "Title 4" },
-    { src: "../image/spacecon.jpg", title: "Title 5" },
-    { src: "../image/apn_chair.jpg", title: "Title 6" },
-    { src: "../image/pp_size.jpg", title: "Title 7" },
-    { src: "../image/spacecon.jpg", title: "Title 8" },
-    { src: "../image/apn_chair.jpg", title: "Title 9" },
-    { src: "../image/pp_size.jpg", title: "Title 10" }
+    // { src: "../image/pp_size.jpg", title: "Title 4" },
+    // { src: "../image/spacecon.jpg", title: "Title 5" },
+    // { src: "../image/apn_chair.jpg", title: "Title 6" },
+    // { src: "../image/pp_size.jpg", title: "Title 7" },
+    // { src: "../image/spacecon.jpg", title: "Title 8" },
+    // { src: "../image/apn_chair.jpg", title: "Title 9" },
+    // { src: "../image/pp_size.jpg", title: "Title 10" }
   ];
 
   const galleryRow = document.getElementById("gallery-row");
@@ -271,3 +289,36 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
+
+
+//  contact form submission
+ // Supabase credentials
+    const SUPABASE_URL = "https://dykgtaxikoexmgnrkgtq.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5a2d0YXhpa29leG1nbnJrZ3RxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI3MDQwMzksImV4cCI6MjA3ODI4MDAzOX0.2wjTsUi4FYfkcjgkCMILQhEKEOrFZpiOthrz2t-iAEM";
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const form = document.getElementById("contactForm");
+    const status = document.getElementById("status");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const comment = document.getElementById("comment").value.trim();
+
+      status.textContent = "Submitting...";
+
+      const { data, error } = await supabase
+        .from("Kushal Portfolio Contact")
+        .insert([{ name, email, comment }]);
+
+      if (error) {
+        console.error("Insert Error:", error);
+        status.textContent = "❌ Failed to submit. Check console for details.";
+      } else {
+        status.textContent = "✅ Submitted successfully!";
+        form.reset();
+      }
+    });

@@ -35,8 +35,10 @@
     <!-- Google Fonts: Roboto -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
     <link rel="stylesheet" href="css/styles.css" />
-    <link rel="icon" type="image/x-icon" href="image/spacecon.JPG" />
+    <link rel="icon" type="image/x-icon" href="image/apn_chair.jpg" />
 </head>
 
 <body>
@@ -83,7 +85,6 @@
     </main>
 
 
-
     <!-- Experience Section -->
     <main class="py-3">
         <div class="container position-relative">
@@ -110,39 +111,66 @@
     </main>
 
     <!-- contact Section -->
-    <main id="contact" class="container py-3">
+    <main id="contact" class="container py-5">
         <h2 class="mb-4 fw-bold text-center">Contact</h2>
-        <div class="contact-box p-4 mx-auto shadow-sm border rounded-4">
 
-            <h2 class="text-center mb-4">Get in Touch</h2>
+        <div class="contact-section">
+            <!-- LEFT SIDE: CONTACT INFO -->
+            <div class="contact p-4 mx-auto shadow-sm border rounded-4">
 
-            <!-- Email -->
-            <div class="contact-item mb-3">
-                <div class="d-flex justify-content-center align-items-center gap-2 mb-2">
-                    <i class="bi bi-envelope flex-shrink-0 text-danger  "></i>
-                    <p class="fw-bold mb-0">Email:</p>
+                <h3 class="text-center mb-4">Get in Touch</h3>
+
+                <!-- Email -->
+                <div class="contact-item mb-3">
+                    <div class="d-flex justify-content-center align-items-center gap-2 mb-2">
+                        <i class="bi bi-envelope flex-shrink-0 text-danger  "></i>
+                        <p class="fw-bold mb-0">Email:</p>
+                    </div>
+                    <p><a href="mailto:kessikushal@gmail.com" class="text-reset">kessikushal@gmail.com</a></p>
                 </div>
-                <p><a href="mailto:kessikushal@gmail.com" class="text-reset">kessikushal@gmail.com</a></p>
+                <hr>
+
+                <!-- Phone -->
+                <div class="contact-item mb-3">
+                    <div class="d-flex justify-content-center align-items-center gap-2 mb-2">
+                        <i class="bi bi-phone flex-shrink-0 text-danger"></i>
+                        <p class="fw-bold mb-0">Phone:</p>
+                    </div>
+                    <p><a href="tel:+9779823584057" class="text-reset">+977 9823584057</a></p>
+                </div>
+                <hr>
+
+                <!-- Address -->
+                <div class="contact-item">
+                    <div class="d-flex justify-content-center align-items-center gap-2 mb-2">
+                        <i class="bi bi-geo-alt flex-shrink-0 text-danger"></i>
+                        <p class="fw-bold mb-0">Address:</p>
+                    </div>
+                    <p>Malpi-08, Panauti, Kavrepalanchok, Nepal</p>
+                </div>
             </div>
-            <hr>
 
-            <!-- Phone -->
-            <div class="contact-item mb-3">
-                <div class="d-flex justify-content-center align-items-center gap-2 mb-2">
-                    <i class="bi bi-phone flex-shrink-0 text-danger"></i>
-                    <p class="fw-bold mb-0">Phone:</p>
-                </div>
-                <p><a href="tel:+9779823584057" class="text-reset">+977 9823584057</a></p>
-            </div>
-            <hr>
+            <!-- RIGHT SIDE: FORM -->
+            <div class="contact p-4 mx-auto shadow-sm border rounded-4" style="width: 500px;">
+                <h3 class="text-center mb-4">Send a Message</h3>
 
-            <!-- Address -->
-            <div class="contact-item">
-                <div class="d-flex justify-content-center align-items-center gap-2 mb-2">
-                    <i class="bi bi-geo-alt flex-shrink-0 text-danger"></i>
-                    <p class="fw-bold mb-0">Address:</p>
-                </div>
-                <p>Malpi-08, Panauti, Kavrepalanchok, Nepal</p>
+                <form id="contactForm">
+                    <div class="mb-3">
+                        <p class="fw-bold mb-1">Full Name: <span class="text-danger">*</span></p>
+                        <input type="text" id="name" class="form-control" placeholder="Full Name" required />
+                    </div>
+                    <div class="mb-3">
+                        <p class="fw-bold mb-1">Email: <span class="text-danger">*</span></p>
+                        <input type="email" id="email" class="form-control" placeholder="Email" required />
+                    </div>
+                    <div class="mb-3">
+                        <p class="fw-bold mb-1">Message: <span class="text-danger">*</span></p>
+                        <textarea id="comment" class="form-control" placeholder="Comment"
+                            rows="3" required  minlength="50"></textarea>
+                    </div>
+                    <button type="submit" class="border rounded-4 px-3 py-2">Submit</button>
+                    <p id="status" class="text-center mt-3"></p>
+                </form>
             </div>
         </div>
     </main>

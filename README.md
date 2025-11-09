@@ -34,7 +34,7 @@ This is a personal portfolio website for **Kushal KC**, a Geomatics Engineer and
 
 ## Technologies Used
 * **HTML**
-* **CSS3 & Bootstrap**
+* **CSS & Bootstrap**
 * **JavaScript**
 
 ---
