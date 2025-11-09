@@ -293,32 +293,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 //  contact form submission
- // Supabase credentials
-    const SUPABASE_URL = "https://dykgtaxikoexmgnrkgtq.supabase.co";
-    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5a2d0YXhpa29leG1nbnJrZ3RxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI3MDQwMzksImV4cCI6MjA3ODI4MDAzOX0.2wjTsUi4FYfkcjgkCMILQhEKEOrFZpiOthrz2t-iAEM";
-    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+// Supabase credentials
+const SUPABASE_URL = "https://dykgtaxikoexmgnrkgtq.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5a2d0YXhpa29leG1nbnJrZ3RxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI3MDQwMzksImV4cCI6MjA3ODI4MDAzOX0.2wjTsUi4FYfkcjgkCMILQhEKEOrFZpiOthrz2t-iAEM";
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    const form = document.getElementById("contactForm");
-    const status = document.getElementById("status");
+const form = document.getElementById("contactForm");
+const status = document.getElementById("status");
 
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const comment = document.getElementById("comment").value.trim();
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const comment = document.getElementById("comment").value.trim();
 
-      status.textContent = "Submitting...";
+  status.textContent = "Submitting...";
 
-      const { data, error } = await supabase
-        .from("Kushal Portfolio Contact")
-        .insert([{ name, email, comment }]);
+  const { data, error } = await supabase
+    .from("Kushal Portfolio Contact")
+    .insert([{ name, email, comment }]);
 
-      if (error) {
-        console.error("Insert Error:", error);
-        status.textContent = "❌ Failed to submit. Check console for details.";
-      } else {
-        status.textContent = "✅ Submitted successfully!";
-        form.reset();
-      }
-    });
+  if (error) {
+    console.error("Insert Error:", error);
+    status.textContent = "❌ Failed to submit. Check console for details.";
+  } else {
+    status.textContent = "✅ Submitted successfully!";
+    form.reset();
+
+    // Hide the message after 5 seconds (5000 milliseconds)
+    setTimeout(() => {
+      status.textContent = "";
+    }, 5000);
+  }
+
+});
