@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <h3>${edu.institution}</h3>
           <p class="fw-bold">${edu.degree}</p>
           ${edu.note ? `<p class="fst-italic">${edu.note}</p>` : ""}
-          ${edu.link ? `<p><a href="${edu.link}" class="text-blue" target="_blank">${edu.link}</a></p>` : ""}
+          ${edu.link ? `<p><a href="${edu.link}"target="_blank">${new URL(edu.link).hostname}</a></p>` : ""}
         </div>
       `;
       education.appendChild(item);
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <h3>${exp.organization}</h3>
           <p class="fw-bold">${exp.role}</p>
           <p class="fst-italic">${exp.description}</p>
-          ${exp.link ? `<p><a href="${exp.link}" class="text-blue">${new URL(exp.link).hostname}</a></p>` : ""}
+          ${exp.link ? `<p><a href="${exp.link}" target="_blank">${new URL(exp.link).hostname}</a></p>` : ""}
         </div>
       `;
       experience.appendChild(item);
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "Leveraged satellite data and GIS mapping for flood damage assessment in Sapta Koshi, environmental monitoring in Chure region, earthquake and forest fire visualization, and dynamic population density mapping.",
       tools: "ArcGIS Pro, QGIS, HEC-HMS, Google Earth Engine, WebGIS, PHP",
       link: "https://antarikchya.org.np/visualization.php",
-      image: "image/apn_chair.jpg"
+      image: "image/sdap.png"
     },
     {
       id: "project2",
@@ -129,8 +129,8 @@ document.addEventListener("DOMContentLoaded", () => {
       duration: "August 2023 – July 2024 | Kathmandu Metropolitan City",
       description: "Collaborated with KMC departments for land use classification and GIS mapping to support urban development and disaster risk management.",
       tools: "ArcGIS Pro, QGIS, AutoCAD, Google Earth Engine, Python",
-      link: "https://antarikchya.org.np/visualization.php",
-      image: "image/apn_chair.jpg"
+      link: "https://www.antarikchya.org.np/susn.php | https://www.kmc.antarikchya.org.np/",
+      image: "image/susn.png"
     },
     {
       id: "project3",
@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
       description: "Utilized Google Earth Engine for LULC mapping and TerrSet 2020 for predicting future LULC changes.",
       tools: "ArcGIS Pro, Google Earth Engine, TerrSet 2020",
       // link: "https://antarikchya.org.np/visualization.php",
-      image: "image/apn_chair.jpg"
+      image: "image/lulc.png"
     },
     // {
     //   id: "project4",
@@ -169,20 +169,23 @@ document.addEventListener("DOMContentLoaded", () => {
       const col = document.createElement("div");
       col.className = "col-md-4";
       const imgTag = p.image
-        ? `<img src="${p.image}" alt="${p.title}" class="project-img mb-3 rounded-3">`
+        ? `<img src="${p.image}" alt="${p.title}" class="project-img mb-2">`
         : "";
 
       col.innerHTML = `
-        <div class="project-card h-100 p-3 shadow-sm border rounded-4">
+        <div class="project-card h-100 p-0 shadow-sm border rounded-4">
           ${imgTag}
-          <h5 class="fw-bold">${p.title}</h5>
-          <p class="text-muted small mb-2">${p.duration}</p>
-          <p>${p.description.substring(0, 150)}...</p>
-          <a href="#" data-bs-toggle="modal" data-bs-target="#${p.id}Modal" class="text-reset">Read More</a>
+          <div class="p-3">
+            <h5 class="fw-bold">${p.title}</h5>
+            <p class="text-muted small mb-2">${p.duration}</p>
+            <p>${p.description.substring(0, 140)}...</p>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#${p.id}Modal" class="text-reset">Read More</a>
+          </div>
         </div>
       `;
       projectContainer.appendChild(col);
 
+      // Create Modal
       modalContainer.innerHTML += `
         <div class="modal fade" id="${p.id}Modal" tabindex="-1" aria-labelledby="${p.id}Label" aria-hidden="true">
           <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -191,12 +194,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 <h4 class="modal-title text-center fw-bold w-100" id="${p.id}Label">${p.title}</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
               </div>
-              <div class="modal-body">
+              <div class="modal-body pt-2">
+                <img src="${p.image}" alt="${p.title}" class="img-fluid rounded mb-4" style="max-height: 300px; object-fit: cover; width: 100%;">
                 <p><strong>Duration:</strong> ${p.duration}</p>
                 <p><strong>Description:</strong> ${p.description}</p>
-                <p><strong>Tools:</strong> ${p.tools}</p>
-                <p><strong>Links:</strong> 
-                  <a href="${p.link}" class="fst-italic small" target="_blank" rel="noopener noreferrer">${p.link}</a>
+                <p><strong>Tools:</strong> ${p.tools || "Not specified"}</p>
+                <p><strong>Links:</strong>
+                  ${p.link ? p.link.split("|").map(l => {
+        const url = l.trim();
+        const domain = url.includes('://') ? new URL(url).hostname.replace(/^www\./, '') : url;
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="d-block mb-1 text-primary">
+                              ${domain}
+                            </a>`;
+      }).join("") : "<em>No link available</em>"}
                 </p>
               </div>
             </div>
@@ -217,7 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { name: "Google Earth Engine", percentage: 90, color: "#71d16e" },
     { name: "HEC-HMS / HEC-RAS", percentage: 65, color: "#dbce11" },
     { name: "HTML/CSS/JS", percentage: 75, color: "#e98007" },
-    { name: "Microsoft 360", percentage: 80, color: "#e91a13" },
+    { name: "Microsoft 365", percentage: 80, color: "#e91a13" },
     { name: "Plane Table", percentage: 50, color: "#04d415" },
     { name: "PHP", percentage: 60, color: "#71d16e" },
     { name: "Python", percentage: 70, color: "#dbce11" },
@@ -263,16 +273,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ---------------- Gallery Section ----------------
   const galleryData = [
-    { src: "../image/pp_size.jpg", title: "Title 1" },
-    { src: "../image/apn_chair.jpg", title: "Title 2" },
-    { src: "../image/spacecon.jpg", title: "Title 3" },
-    // { src: "../image/pp_size.jpg", title: "Title 4" },
-    // { src: "../image/spacecon.jpg", title: "Title 5" },
-    // { src: "../image/apn_chair.jpg", title: "Title 6" },
-    // { src: "../image/pp_size.jpg", title: "Title 7" },
-    // { src: "../image/spacecon.jpg", title: "Title 8" },
-    // { src: "../image/apn_chair.jpg", title: "Title 9" },
-    // { src: "../image/pp_size.jpg", title: "Title 10" }
+    { src: "../image/gallery/spacecon2024.jpg", title: "SpaceCon 2024", dates: "April 2024" },
+    { src: "../image/gallery/spacecon2025.jpg", title: "SpaceCon 2025", dates: "April 2025" },
+        { src: "../image/gallery/mitrakunj2024.jpg", title: "6th Asia Meet and International Conference", dates: "May 2024" },
+    { src: "../image/gallery/pkr.jpg", title: "E Cube Training, Pokhara", dates: "January 2024" },
+    { src: "../image/gallery/mhm.jpg", title: "Multi Hazard Mapping Traning", dates: "November 2024" },
+    { src: "../image/gallery/nyc2024.jpg", title: "NYC Conference 2024", dates: "June 2024" },
+    // { src: "../image/gallery/mhm.jpg", title: "Training" },
   ];
 
   const galleryRow = document.getElementById("gallery-row");
@@ -283,6 +290,7 @@ document.addEventListener("DOMContentLoaded", () => {
       colDiv.innerHTML = `
         <img src="${item.src}" alt="${item.title}" class="gallery-img">
         <div class="gallery-title">${item.title}</div>
+        <div class="gallery-dates">Date: ${item.dates}</div>
       `;
       galleryRow.appendChild(colDiv);
     });
@@ -316,7 +324,7 @@ form.addEventListener("submit", async (e) => {
 
   if (error) {
     console.error("Insert Error:", error);
-    status.textContent = "❌ Failed to submit. Check console for details.";
+    status.textContent = "❌ Failed to submit. Please try again.";
   } else {
     status.textContent = "✅ Submitted successfully!";
     form.reset();
@@ -327,4 +335,56 @@ form.addEventListener("submit", async (e) => {
     }, 5000);
   }
 
+});
+
+
+const honoursData = [
+  {
+    image: "image/NASA_Competition.jpg",
+    title: "Pale Blue Dot: Visualization Challenge",
+    organizer: "NASA and UNVIE",
+    description: "\"<strong>The Honorable Mention</strong>\" in DrivenData's Pale Blue Dot: Visualization Challenge, for submission of LULC classification and damage assessment of the 2008 Sapta Koshi Flood using multi-temporal Landsat data",
+    link: "https://drivendata-public-assets.s3.amazonaws.com/nasa-open-science-gallery/nayan.bakhadyo/visual.png",
+    date: "March, 2024"
+  },
+  {
+    image: "image/Map_Design_Competition.png",
+    title: "Map Design Competition",
+    organizer: "Geomatics Engineering Students' Association of Nepal",
+    description: "Secured the <strong>1<sup>st</sup> position</strong> in the Map Design Competition for the submission on the Fire Susceptibility Map of Kathmandu Metropolitan City",
+    link: "https://www.facebook.com/photo?fbid=988478053281843&set=pcb.988479963281652",
+    date: "June 2024"
+  }
+  // Add more awards here
+];
+
+const honoursContainer = document.getElementById("honours-container");
+
+honoursData.forEach(award => {
+  const item = document.createElement("div");
+  item.className = "col-12";
+  item.innerHTML = `
+    <div class="honour-card d-flex gap-2 align-items-start mx-auto shadow-sm border rounded-4">
+      <div class="d-flex flex-column flex-md-row ">
+        <!-- Left: Fixed 300px Image -->
+        <div class="flex-shrink-0 text-center">
+          <img src="${award.image}" alt="${award.title}" class="honour-img shadow">
+        </div>
+
+        <!-- Right: Content -->
+        <div class="flex-grow-1 p-3 d-flex flex-column">
+        <div class="d-flex justify-content-between align-items-start mb-2">
+          <h5 class="fw-bold">${award.title}</h5>
+          <span">
+              <i class="fas fa-calendar-alt me-2"></i>${award.date}
+            </span>
+            </div>
+          <h5>Organizer: ${award.organizer}</h5>
+          <p>${award.description}</p>
+          ${award.link ? `<p class = "mb-0 pb-0"><a href="${award.link}" target="_blank" >${new URL(award.link).hostname}</a></p>` : ""}       
+          </div>
+      </div>
+    </div>
+  `;
+  honoursContainer.appendChild(item);
 });
