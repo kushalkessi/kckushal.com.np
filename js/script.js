@@ -27,21 +27,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const educationData = [
     {
       year: "2025 – 2029",
-      institution: "Kathmandu University (KU), Dhulikhel, Nepal",
+      institution: "Kathmandu University (KU)",
+      location: "Dhulikhel, Kavrepalanchok, Nepal",
       degree: "Bachelor of Engineering in Geomatics Engineering (B.E.)",
       link: "https://geom.ku.edu.np/",
       note: "Key Modules: Programming (C)"
     },
     {
       year: "2019 – 2023",
-      institution: "Nepal Banepa Polytechnic Institute (NBPI), Banepa, Nepal",
+      institution: "Nepal Banepa Polytechnic Institute (NBPI) | CTEVT",
+      location: "Banepa, Kavrepalanchok, Nepal",
       degree: "Diploma in Geomatics Engineering (DGE) | Aggregate Score: 77.86%",
       link: "https://nbpi.edu.np/",
       note: "Key Modules: Surveying, Remote Sensing, GIS, Photogrammetry, Programming (Python)"
     },
     {
       year: "2006 – 2019",
-      institution: "Arunodaya English Secondary School, Panauti, Nepal",
+      institution: "Arunodaya English Secondary School",
+      location: "Panauti, Kavrepalanchok, Nepal",
       degree: "Secondary Education Examination (SEE) | Aggregate Grade: 3.85"
     }
   ];
@@ -58,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <div class="timeline-content">
           <h3>${edu.institution}</h3>
+          <h4>${edu.location}</h4>
           <p class="fw-bold">${edu.degree}</p>
           ${edu.note ? `<p class="fst-italic">${edu.note}</p>` : ""}
           ${edu.link ? `<p><a href="${edu.link}"target="_blank">${new URL(edu.link).hostname}</a></p>` : ""}
@@ -72,19 +76,22 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       date: "August 2023 – September 2025",
       organization: "Antarikchya Pratisthan Nepal",
+      location: "Lazimpath, Kathmandu, Nepal",
       role: "Satellite Data Analyst | GIS Mapping",
       description: "Collaborative projects with Kathmandu Metropolitan City (KMC).",
       link: "https://antarikchya.org.np/"
     },
     {
       date: "March 2024 – August 2024",
-      organization: "Asian Institute of Technology, Thailand (Remote)",
+      organization: "Asian Institute of Technology (AIT)",
+      location: "Thailand (Remote)",
       role: "Remote Sensing Analyst | GIS Mapping",
       description: "Collaborative projects with Dr. Ranadheer Mandadi."
     },
     {
       date: "June 2023 – July 2023",
-      organization: "NAXA, Kathmandu, Nepal",
+      organization: "NAXA",
+      location: "Shantinagar, Kathmandu, Nepal",
       role: "GIS Analyst",
       description: "Collaborative projects with Changunarayan Municipality and NDRRMA.",
       link: "https://naxa.com.np/"
@@ -103,6 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <div class="timeline-content">
           <h3>${exp.organization}</h3>
+          <h4>${exp.location}</h4>
           <p class="fw-bold">${exp.role}</p>
           <p class="fst-italic">${exp.description}</p>
           ${exp.link ? `<p><a href="${exp.link}" target="_blank">${new URL(exp.link).hostname}</a></p>` : ""}
@@ -275,7 +283,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const galleryData = [
     { src: "../image/gallery/spacecon2024.jpg", title: "SpaceCon 2024", dates: "April 2024" },
     { src: "../image/gallery/spacecon2025.jpg", title: "SpaceCon 2025", dates: "April 2025" },
-        { src: "../image/gallery/mitrakunj2024.jpg", title: "6th Asia Meet and International Conference", dates: "May 2024" },
+    { src: "../image/gallery/mitrakunj2024.jpg", title: "6th Asia Meet and International Conference", dates: "May 2024" },
     { src: "../image/gallery/pkr.jpg", title: "E Cube Training, Pokhara", dates: "January 2024" },
     { src: "../image/gallery/mhm.jpg", title: "Multi Hazard Mapping Traning", dates: "November 2024" },
     { src: "../image/gallery/nyc2024.jpg", title: "NYC Conference 2024", dates: "June 2024" },
