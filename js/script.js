@@ -281,8 +281,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ---------------- Gallery Section ----------------
   const galleryData = [
-    { src: "../image/gallery/spacecon2024.jpg", title: "SpaceCon 2024", dates: "April 2024" },
-    { src: "../image/gallery/spacecon2025.jpg", title: "SpaceCon 2025", dates: "April 2025" },
+    { src: "../image/gallery/spacecon2024.JPG", title: "SpaceCon 2024", dates: "April 2024" },
+    { src: "../image/gallery/spacecon2025.JPG", title: "SpaceCon 2025", dates: "April 2025" },
     { src: "../image/gallery/mitrakunj2024.jpg", title: "6th Asia Meet and International Conference", dates: "May 2024" },
     { src: "../image/gallery/pkr.jpg", title: "E Cube Training, Pokhara", dates: "January 2024" },
     { src: "../image/gallery/mhm.jpg", title: "Multi Hazard Mapping Traning", dates: "November 2024" },
